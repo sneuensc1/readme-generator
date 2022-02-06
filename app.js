@@ -80,8 +80,8 @@ const promptUser = () => {
             }
         },
         {
-            type: confirm,
-            name: confirmLicense,
+            type: 'confirm',
+            name: 'confirmLicense',
             message: 'Would you like to add licensing information?',
             default: true,
         },
@@ -92,8 +92,8 @@ const promptUser = () => {
             when: ({confirmLicense}) => confirmLicense
         },
         {
-            type: confirm,
-            name: confirmContribute,
+            type: 'confirm',
+            name: 'confirmContribute',
             message: 'Would you like to add how to contribute to the project?',
             default: true,
         },
@@ -105,3 +105,5 @@ const promptUser = () => {
         },
     ])
 };
+
+promptUser ();
