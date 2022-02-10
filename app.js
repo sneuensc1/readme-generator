@@ -1,5 +1,7 @@
+//packages and files needed for the program to run
 const inquirer = require('inquirer');
 
+//array of questions to prompt the user
 const promptUser = () => {
     return inquirer.prompt([
         {
@@ -107,3 +109,12 @@ const promptUser = () => {
 };
 
 promptUser ();
+
+// TODO: Create a function to write README file
+function writeToFile(fileName, data) {}
+
+// TODO: Create a function to initialize app
+function init() {}
+
+// Function call to initialize app
+init();
