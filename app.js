@@ -1,5 +1,7 @@
 //packages and files needed for the program to run
 const inquirer = require('inquirer');
+const generatePage = require('./utils/generateMarkdown');
+
 
 //array of questions to prompt the user
 const promptUser = () => {
