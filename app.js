@@ -4,6 +4,7 @@ const fs = require('fs');
 const generatePage = require('./utils/generateMarkdown');
 const generateMarkdown = require('./utils/generateMarkdown');
 
+
 //greet the user
 console.log("Welcome to my README generator, answer the following questions to generate a professional README.")
 
@@ -114,10 +115,6 @@ const promptUser = () => {
     ])
 };
 
-//wrote this myself, it was based on async
-promptUser ();
-
-
 //Function to write README file
 function writeToFile(fileName, data) {
     fs.writeFile(fileName, data, (err) => {
@@ -126,19 +123,10 @@ function writeToFile(fileName, data) {
         }
 
         console.log("You can now view your README file!");
-    })
-};
-
-// TODO: Create a function to initialize app
-//got this from the tutorial, not sure it matches since I have promptUser
-function init() {
-    inquirer.prompt(questions)
-    .then(function(userInput) {
-        console.log(userInput)
-        writeToFile('readme.md', generateMarkdown(userInput));
     });
 };
 
-// Function call to initialize app
-//this was provided I think? This and the previous two functions. 
-init();
+promptUser()
+    .then(function(input) {
+        writeToFile('README.md', generateMarkdown(input));
+    });
