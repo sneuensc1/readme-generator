@@ -1,7 +1,11 @@
 //packages and files needed for the program to run
 const inquirer = require('inquirer');
+const fs = require('fs');
 const generatePage = require('./utils/generateMarkdown');
+const generateMarkdown = require('./utils/generateMarkdown');
 
+//greet the user
+console.log("Welcome to my README generator, answer the following questions to generate a professional README.")
 
 //array of questions to prompt the user
 const promptUser = () => {
@@ -110,13 +114,31 @@ const promptUser = () => {
     ])
 };
 
+//wrote this myself, it was based on async
 promptUser ();
 
-// TODO: Create a function to write README file
-function writeToFile(fileName, data) {}
+
+//Function to write README file
+function writeToFile(fileName, data) {
+    fs.writeFile(fileName, data, (err) => {
+        if(err) {
+            return console.log(err);
+        }
+
+        console.log("You can now view your README file!");
+    })
+};
 
 // TODO: Create a function to initialize app
-function init() {}
+//got this from the tutorial, not sure it matches since I have promptUser
+function init() {
+    inquirer.prompt(questions)
+    .then(function(userInput) {
+        console.log(userInput)
+        writeToFile('readme.md', generateMarkdown(userInput));
+    });
+};
 
 // Function call to initialize app
+//this was provided I think? This and the previous two functions. 
 init();
