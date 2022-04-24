@@ -1,8 +1,7 @@
 //packages and files needed for the program to run
 const inquirer = require('inquirer');
 const fs = require('fs');
-const generatePage = require('./utils/generateMarkdown');
-const generateMarkdown = require('./utils/generateMarkdown');
+const writeFile = require('./utils/generateMarkdown');
 
 
 //greet the user
@@ -115,18 +114,7 @@ const promptUser = () => {
     ])
 };
 
-//Function to write README file
-function writeToFile(fileName, data) {
-    fs.writeFile(fileName, data, (err) => {
-        if(err) {
-            return console.log(err);
-        }
-
-        console.log("You can now view your README file!");
-    });
-};
-
 promptUser()
-    .then(function(input) {
-        writeToFile('README.md', generateMarkdown(input));
+    .then(pageMarkdown => {
+        return writeFile(pageMarkdown);
     });
