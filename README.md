@@ -14,8 +14,8 @@ An app that produces a professional quality README file using information gather
 - [Contribution](#contribution)
 - [Test](#test)
 - [License](#license)
--[Questions](#questions)
--[Video](#video)
+- [Questions](#questions)
+- [Video](#video)
 
 ## Built With
 
