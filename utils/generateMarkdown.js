@@ -60,4 +60,23 @@ function renderLicenseSection(data) {
   };
 }
 
+function generateMarkdown(data) {
+  console.log(data);
+  return `
+  # ${data.title}
+  ${renderLicenseBadge(data)}
+
+  ## Table of Contents
+  1. [Title](#title)
+  2. [Description](#description)
+  3. [Installation](#installation)
+  4. [Usage](#usage)
+  5. [Contribution](#contribution)
+  6. [License](#license)
+  7. [Addition](#addition)
+
+  
+  `
+}
+
 module.exports = generateMarkdown 

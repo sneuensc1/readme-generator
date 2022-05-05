@@ -39,18 +39,6 @@ const promptUser = () => {
         },
         {
             type: 'confirm',
-            name: 'confirmContents',
-            message: 'Would you like to include a table of contents?',
-            default: true,
-        },
-        {
-            type: 'input',
-            name: 'contents',
-            message: 'Please provide a table of contents:',
-            when: ({confirmContent}) => confirmContent
-        },
-        {
-            type: 'confirm',
             name: 'confirmInstall',
             message: 'Do you need to include instructions on how to install and run your project?',
             default: true,
