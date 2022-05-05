@@ -64,7 +64,6 @@ function generateMarkdown(data) {
   console.log(data);
   return `
   # ${data.title}
-  ${renderLicenseBadge(data)}
 
   ## Table of Contents
   1. [Title](#title)
@@ -75,8 +74,26 @@ function generateMarkdown(data) {
   6. [License](#license)
   7. [Addition](#addition)
 
-  
-  `
+  ## Description
+  ${data.description}
+
+  ##Installation
+  ${data.installation}
+
+  ## Usage
+  ${data.usage}
+
+  ## Contribution
+  ${data.contribution}
+
+  ${renderLicenseBadge(data)}
+  ${renderLicenseSection(data)}
+  ${renderLicenseLink(data)}
+
+  ## Addition
+  ${data.addition}
+
+  `;
 }
 
 module.exports = generateMarkdown 

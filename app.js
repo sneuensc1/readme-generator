@@ -45,13 +45,13 @@ const promptUser = () => {
         },
         {
             type: 'input',
-            name: 'install',
+            name: 'installation',
             message: 'Please describe how to install and run your project:',
             when: ({confirmInstall}) => confirmInstall
         },
         {
             type: 'input',
-            name: 'use',
+            name: 'usage',
             message: 'Please provide instructions on how to use your project (Required)',
             validate: use => {
                 if (use) {
@@ -64,10 +64,10 @@ const promptUser = () => {
         },
         {
             type: 'input',
-            name: 'credits',
+            name: 'contribution',
             message: 'Please list contributors to your project (Required)',
-            validate: credits => {
-                if (credits) {
+            validate: contribution => {
+                if (contribution) {
                     return true;
                 } else {
                     console.log('Please list the contributors!');
@@ -76,16 +76,10 @@ const promptUser = () => {
             }
         },
         {
-            type: 'confirm',
-            name: 'confirmLicense',
-            message: 'Would you like to add licensing information?',
-            default: true,
-        },
-        {
-            type: 'input',
+            type: 'list',
             name: 'license',
-            message: 'Please add licensing information:',
-            when: ({confirmLicense}) => confirmLicense
+            message: 'Please pick the type of license:',
+            choices: ['Apache', 'BSD', 'MIT', 'None']
         },
         {
             type: 'confirm',
@@ -95,7 +89,7 @@ const promptUser = () => {
         },
         {
             type: 'input',
-            name: 'contribute',
+            name: 'addition',
             message: 'Please explain how to contribute to the project:',
             when: ({confirmContribute}) => confirmContribute
         },
